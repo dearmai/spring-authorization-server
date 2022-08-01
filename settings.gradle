@@ -1,13 +1,13 @@
 pluginManagement {
 	repositories {
 		gradlePluginPortal()
-		maven { url 'https://repo.spring.io/release' }
+		maven { url 'https://nexus.dearmai.net/repository/maven-releases/' }
 	}
 }
 
 plugins {
 	id "com.gradle.enterprise" version "3.9"
-	id "io.spring.ge.conventions" version "0.0.9"
+//	id "io.spring.ge.conventions" version "0.0.9"
 }
 
 dependencyResolutionManagement {
