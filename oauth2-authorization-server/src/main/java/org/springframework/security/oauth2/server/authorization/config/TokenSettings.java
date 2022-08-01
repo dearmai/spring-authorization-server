@@ -39,11 +39,15 @@ public final class TokenSettings extends AbstractSettings {
 
 	/**
 	 * Returns the time-to-live for an access token. The default is 5 minutes.
-	 *
+	 * 2022.08.01 - 0.3.1 내 에서 String to Duration 관련 오류 발생 임시 수정
 	 * @return the time-to-live for an access token
 	 */
 	public Duration getAccessTokenTimeToLive() {
-		return getSetting(ConfigurationSettingNames.Token.ACCESS_TOKEN_TIME_TO_LIVE);
+		Object setting = getSetting(ConfigurationSettingNames.Token.ACCESS_TOKEN_TIME_TO_LIVE);
+		if (setting instanceof String) {
+			setting = Duration.parse((String) setting);
+		}
+		return (Duration) setting;
 	}
 
 	/**
